@@ -8,12 +8,10 @@ use App\Models\BookingItinerary;
 use App\Models\Customer;
 use App\Models\Guide;
 use App\Models\User;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
 class FactoryTest extends TestCase
 {
-    use RefreshDatabase;
 
     public function test_customer_factory_creates_valid_data(): void
     {

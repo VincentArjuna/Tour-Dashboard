@@ -20,8 +20,18 @@ class Guide extends Model
         'languages',
     ];
 
+    protected $casts = [
+        'languages' => 'array',
+        'date_of_birth' => 'date',
+    ];
+
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function bookings()
+    {
+        return $this->hasMany(Booking::class);
     }
 }
