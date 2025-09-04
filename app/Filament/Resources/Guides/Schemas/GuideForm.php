@@ -13,13 +13,18 @@ class GuideForm
     {
         return $schema
             ->components([
+                TextInput::make('user_id')
+                    ->required()
+                    ->numeric(),
+                TextInput::make('identity_type'),
+                TextInput::make('identity_number'),
                 TextInput::make('name')
                     ->required(),
                 DatePicker::make('date_of_birth')
                     ->required(),
-                Textarea::make('address')
-                    ->required()
+                Textarea::make('bio')
                     ->columnSpanFull(),
+                TextInput::make('languages'),
             ]);
     }
 }

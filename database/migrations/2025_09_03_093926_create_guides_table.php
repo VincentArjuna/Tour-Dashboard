@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('name')->required();
             $table->date('date_of_birth')->required();
             $table->text('bio')->nullable();
-            $table->string('languages')->nullable();
+            $table->json('languages')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
