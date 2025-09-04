@@ -11,17 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('guides', function (Blueprint $table) {
+        Schema::create('customers', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained();
+            $table->string('full_name')->required();
+            $table->string('email')->unique()->nullable();
+            $table->string('phone_number')->required();
+            $table->date('date_of_birth')->nullable();
             $table->string('identity_type')->nullable();
             $table->string('identity_number')->nullable();
-            $table->string('name')->required();
-            $table->date('date_of_birth')->required();
-            $table->text('bio')->nullable();
-            $table->string('languages')->nullable();
+            $table->text('special_needs')->nullable();
             $table->timestamps();
-            $table->softDeletes();
         });
     }
 
@@ -30,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('guides');
+        Schema::dropIfExists('customers');
     }
 };
