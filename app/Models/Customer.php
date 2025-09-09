@@ -9,6 +9,7 @@ class Customer extends Model
 {
     /** @use HasFactory<\Database\Factories\CustomerFactory> */
     use HasFactory;
+
     protected $fillable = [
         'full_name',
         'email',
@@ -18,6 +19,7 @@ class Customer extends Model
         'identity_number',
         'special_needs',
     ];
+
     public function bookings()
     {
         return $this->belongsToMany(Booking::class, 'booking_customers')->withTimestamps();

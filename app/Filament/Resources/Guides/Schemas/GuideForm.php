@@ -3,8 +3,10 @@
 namespace App\Filament\Resources\Guides\Schemas;
 
 use Filament\Forms\Components\DatePicker;
-use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\TagsInput;
 use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Schema;
 
 class GuideForm
@@ -13,18 +15,52 @@ class GuideForm
     {
         return $schema
             ->components([
-                TextInput::make('user_id')
+                Select::make('user_id')
+                    ->label('User Account')
+                    ->relationship('user', 'name')
+                    ->searchable()
+                    ->preload()
+                    ->required(),
+
+                Select::make('identity_type')
+                    ->options([
+                        'passport' => 'Passport',
+                        'national_id' => 'National ID',
+                        'driving_license' => 'Driving License',
+                    ])
+                    ->required(),
+
+                TextInput::make('identity_number')
                     ->required()
-                    ->numeric(),
-                TextInput::make('identity_type'),
-                TextInput::make('identity_number'),
+                    ->maxLength(50),
+
                 TextInput::make('name')
-                    ->required(),
+                    ->required()
+                    ->maxLength(255),
+
                 DatePicker::make('date_of_birth')
-                    ->required(),
+                    ->required()
+                    ->native(false)
+                    ->maxDate(now()->subYears(18)),
+
                 Textarea::make('bio')
+                    ->rows(4)
                     ->columnSpanFull(),
-                TextInput::make('languages'),
+
+                TagsInput::make('languages')
+                    ->suggestions([
+                        'English',
+                        'Indonesian',
+                        'Mandarin',
+                        'Japanese',
+                        'Korean',
+                        'French',
+                        'German',
+                        'Spanish',
+                        'Italian',
+                        'Dutch',
+                    ])
+                    ->columnSpanFull(),
             ]);
     }
 }

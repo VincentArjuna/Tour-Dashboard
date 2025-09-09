@@ -9,6 +9,7 @@ class BookingItinerary extends Model
 {
     /** @use HasFactory<\Database\Factories\BookingItineraryFactory> */
     use HasFactory;
+
     protected $fillable = [
         'booking_id',
         'title',
@@ -17,6 +18,7 @@ class BookingItinerary extends Model
         'description',
         'location',
     ];
+
     public function booking()
     {
         return $this->belongsTo(Booking::class);

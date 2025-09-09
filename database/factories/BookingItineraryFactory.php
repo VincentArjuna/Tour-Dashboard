@@ -22,7 +22,7 @@ class BookingItineraryFactory extends Factory
             'day_number' => fake()->numberBetween(1, 14),
             'time_of_day' => fake()->randomElement(['morning', 'afternoon', 'evening', 'full_day']),
             'description' => fake()->paragraph(2),
-            'location' => fake()->city() . ', ' . fake()->country(),
+            'location' => fake()->city().', '.fake()->country(),
         ];
     }
 }

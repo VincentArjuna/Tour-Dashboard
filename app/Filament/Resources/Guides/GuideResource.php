@@ -13,14 +13,25 @@ use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
+use UnitEnum;
 
 class GuideResource extends Resource
 {
     protected static ?string $model = Guide::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedIdentification;
 
-    protected static ?string $recordTitleAttribute = 'Guide';
+    protected static ?string $navigationLabel = 'Guides';
+
+    protected static ?string $modelLabel = 'Guide';
+
+    protected static ?string $pluralModelLabel = 'Guides';
+
+    protected static ?string $recordTitleAttribute = 'name';
+
+    protected static ?int $navigationSort = 2;
+
+    protected static string|UnitEnum|null $navigationGroup = 'People Management';
 
     public static function form(Schema $schema): Schema
     {

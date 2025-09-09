@@ -13,12 +13,25 @@ use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
+use UnitEnum;
 
 class BookingItineraryResource extends Resource
 {
     protected static ?string $model = BookingItinerary::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedCalendarDays;
+
+    protected static ?string $navigationLabel = 'Tour Itineraries';
+
+    protected static ?string $modelLabel = 'Tour Itinerary';
+
+    protected static ?string $pluralModelLabel = 'Tour Itineraries';
+
+    protected static ?string $recordTitleAttribute = 'title';
+
+    protected static ?int $navigationSort = 3;
+
+    protected static string|UnitEnum|null $navigationGroup = 'Tour Management';
 
     public static function form(Schema $schema): Schema
     {
