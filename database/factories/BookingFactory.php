@@ -17,8 +17,8 @@ class BookingFactory extends Factory
     public function definition(): array
     {
         $startDate = fake()->dateTimeBetween('+1 day', '+6 months');
-        $endDate = fake()->dateTimeBetween($startDate, $startDate->format('Y-m-d') . ' +14 days');
-        
+        $endDate = fake()->dateTimeBetween($startDate, $startDate->format('Y-m-d').' +14 days');
+
         return [
             'user_id' => \App\Models\User::factory(),
             'guide_id' => \App\Models\Guide::factory(),

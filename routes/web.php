@@ -1,10 +1,12 @@
 <?php
 
+use App\Http\Controllers\TourController;
 use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
 
+// Default route - redirect to dashboard or tours
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('tours.list');
 })->name('home');
 
 Route::view('dashboard', 'dashboard')

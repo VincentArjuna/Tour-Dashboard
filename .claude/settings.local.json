@@ -4,7 +4,19 @@
       "Bash(git add:*)",
       "Bash(php artisan make:filament-resource:*)",
       "Bash(php artisan make:filament-relation-manager:*)",
-      "Bash(php -l:*)"
+      "Bash(php -l:*)",
+      "Bash(git commit:*)",
+      "mcp__ide__getDiagnostics",
+      "Bash(php artisan serve:*)",
+      "WebFetch(domain:localhost)",
+      "Bash(./vendor/bin/pint)",
+      "Bash(php artisan:*)",
+      "WebFetch(domain:filamentphp.com)",
+      "Bash(grep:*)",
+      "WebFetch(domain:127.0.0.1)",
+      "Bash(curl:*)",
+      "Bash(git push:*)",
+      "Bash(composer show:*)"
     ],
     "deny": [],
     "ask": []

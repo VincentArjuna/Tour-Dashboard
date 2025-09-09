@@ -9,6 +9,7 @@ class BookingCustomer extends Model
 {
     /** @use HasFactory<\Database\Factories\BookingCustomerFactory> */
     use HasFactory;
+
     protected $fillable = [
         'booking_id',
         'customer_id',
@@ -19,6 +20,7 @@ class BookingCustomer extends Model
     {
         return $this->belongsTo(Booking::class);
     }
+
     public function customer()
     {
         return $this->belongsTo(Customer::class);
